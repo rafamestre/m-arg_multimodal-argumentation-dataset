@@ -56,11 +56,6 @@ For the task of crowdscourcing annotation, the platform Appen was used (https://
 
 A total of 101 test questions were used in this annotation and 104 trusted contributors participated in this task out of 287 that attempted at it. Overall, considering the quality settings (e.g. dynamic judgements, tainted answers), 21646 trusted annotations were collected (5746 belonging to gold questions and 15900 to random pairs), and a separate 1663 annotations were deemed untrustworthy.  
 
-
-## Publications
-
-> Rafael Mestre, Razvan Milicin, Stuart E. Middleton, Matt Ryan, Jiatong Zhu, Timothy J. Norman. 2021. M-Arg: MultiModal Argument Mining Dataset for Political Debates with Audio and Transcripts. 
-
 ## Annotations
 
 Support/attack/neither - confidence
@@ -68,6 +63,35 @@ Support/attack/neither - confidence
 Self-confidence
 
 Trust in the annotation
+
+
+## Multimodal classification
+
+In order to test the validity of the dataset for relation-based argumentation mining, we tested the performance of different types of NLP models, combining audio features or not:
+
+1. A text-only model, based on a BERT encoding.
+2. An audio-only model, based on parallel CNNs and Bi-LSTMs.
+3. A multimodal model, combining both text and audio inputs in parallel, as in models 1 and 2.
+
+Audio feature extraction was performed using the Python module "librosa".  The following features were extracted: Mel-frequency cepstral coefficients (MFCCs), which are widely used features to characterise and detect voice signals; several spectral features like spectral centroids, spectral bandwidth, spectral roll-off and spectral contrast; and a 12-bit chroma vector. For each sentence, we used the timestamp to clip the audio file with a buffer of <img src="https://render.githubusercontent.com/render/math?math=\pm 2"> s to ensure the full audio of the utterance was captured. All of the features were matrices of shape *N*x*T*, where *T* is the temporal dimension (dependent on the duration of the utterance) and *N* is another dimension that can range from 1 in the case of spectral bandwitdth to 25 in the case of MFCCs. They were concatenated to form a feature matrix of 45x*T* and then they were padded with 0's to the maximum *T* dimension of the dataset (proportional to the maximum duration of an utterance).
+
+The latest results of model performance are reported in the following table. The last model is a proof of concept to show the possibility of filtering the data by some of the parameters mentioned before (namely the trust in the annotator, the confidence in the annotation and the self-confidence score) to cure the according to the reseacher's needs. In this case, we filtered the pairs of sentences according to the annotation agreement or confidence for values higher than 0.85, improving the overall accuracy of the multimodal model, even with a smaller amount of data.
+
+| Model | Text dropout | Audio dropout | Accuracy | M-F1 | w-F1 | Attack m-F1 | Neither m-F1 | Support m-F1 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Audio only | | 0.2 |  <img src="https://render.githubusercontent.com/render/math?math=0.89 \pm 0.05"> | <img src="https://render.githubusercontent.com/render/math?math=0.45 \pm 0.05"> | <img src="https://render.githubusercontent.com/render/math?math=0.87 \pm 0.06"> | <img src="https://render.githubusercontent.com/render/math?math=0.28 \pm 0.08"> | <img src="https://render.githubusercontent.com/render/math?math=0.94 \pm 0.03"> | <img src="https://render.githubusercontent.com/render/math?math=0.14 \pm 0.10"> |
+| Text only | 0.1 |  |  <img src="https://render.githubusercontent.com/render/math?math=0.87 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.35 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.82 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.02 \pm 0.03"> | <img src="https://render.githubusercontent.com/render/math?math=0.93 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.12 \pm 0.06"> |
+| Multimodal | 0.1 | 0.1 |  <img src="https://render.githubusercontent.com/render/math?math=0.86 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.40 \pm 0.04"> | <img src="https://render.githubusercontent.com/render/math?math=0.83 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.08 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.92 \pm 0.003"> | <img src="https://render.githubusercontent.com/render/math?math=0.18 \pm 0.04"> |
+| Multimodal | 0.1 | 0.2 |  <img src="https://render.githubusercontent.com/render/math?math=0.88 \pm 0.04"> | <img src="https://render.githubusercontent.com/render/math?math=0.44 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.87 \pm 0.05"> | <img src="https://render.githubusercontent.com/render/math?math=0.22 \pm 0.06"> | <img src="https://render.githubusercontent.com/render/math?math=0.93 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.15 \pm 0.05"> |
+| Multimodal | 0.1 | 0.3 |  <img src="https://render.githubusercontent.com/render/math?math=0.86 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.37 \pm 0.04"> | <img src="https://render.githubusercontent.com/render/math?math=0.83 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.10 \pm 0.10"> | <img src="https://render.githubusercontent.com/render/math?math=0.93 \pm 0.01"> | <img src="https://render.githubusercontent.com/render/math?math=0.10 \pm 0.07"> |
+| Multimodal with annotation confidence >= 0.85 | 0.1 | 0.2 |  <img src="https://render.githubusercontent.com/render/math?math=0.91 \pm 0.03"> | <img src="https://render.githubusercontent.com/render/math?math=0.39 \pm 0.04"> | <img src="https://render.githubusercontent.com/render/math?math=0.90 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.12 \pm 0.09"> | <img src="https://render.githubusercontent.com/render/math?math=0.95 \pm 0.02"> | <img src="https://render.githubusercontent.com/render/math?math=0.10 \pm 0.04"> |
+
+Note: The performance values presented in the publication below are a snapshot of the models' performance at the time of writing and might difer slightly from these ones. This table contains the most recent results after performing several iterations of the training. The results above show the average for *N*=4 repetitions (except the last one, for which *N*=3) with the standard deviation. Despite the small differences with the data reported in the publication, they still fall within the standard deviation and the conclusions remain. 
+
+## Publications
+
+> Rafael Mestre, Razvan Milicin, Stuart E. Middleton, Matt Ryan, Jiatong Zhu, Timothy J. Norman. 2021. M-Arg: Multimodal Argument Mining Dataset for Political Debates with Audio and Transcripts. 
+
 
 ## Dataset files and codes
 
