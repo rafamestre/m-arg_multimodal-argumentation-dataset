@@ -95,9 +95,35 @@ Note: The performance values presented in the publication below are a snapshot o
 
 ## Dataset files and codes
 
-Explanation of files available
+Folders:
 
+- Annotated dataset: contains three files in .csv format with the full dataset, the full annotated dataset (individual annotations) and the aggregated dataset (with average judgements). Use this to train your models.
+- Codes: contains the codes to reproduce the data pre-processing (tokenisation, audio clipping), the plots in the paper (descriptive statistics) and the models outlined above.
+- Data: contains all the original data, the audio (full and clipped by utterances) and further data at different levels of pre-processing, for transparency.
 
+Please see file XXXX for extended details of the dataset columns and how to use the codes.
 
+Details:
+
+In annotated dataset:
+
+- annotated_sentences_reference.csv: dataset with references to IDs to easily link sentences, contexts, etc. Contains the following columns: 
+
+| Column | Explanation |
+| ---- | ---- |
+| Pair ID | Unique ID of the pair of sentences and the surrounding context, in the following format: nDDXXXXbYYpZZWW. The first 2 digits (DD) after n indicate the debate and the following 4 digits (XXXX) indicate the sentence number within that debate. This is the unique ID of the central sentence of the context. For instance, n020456 refers to the sentence number 456 in the debate 02. The following two digits after b (YY) indicate the number of buffer sentences given with the context. For instance, in n020456b07, 7 sentences before and after sentence 456 in debate 02 were given in the context. (Note that although we performed trials with different number of sentences in the context, we fixed this number to 7 and all the data in this dataset have a buffer of 7 sentences.) The next 4 digits after p (ZZWW) indicate the last two digits of the first sentence (ZZ) and the second sentence (WW) of the pair. For instance, n020456b07p5559, refers to the central sentence 456 within debate 02, that was presented with +- 7 sentences as context, and the pair of sentences to annotate were number 455 and 459. |
+| Sentence 1 ID | The ID of the first sentence of the pair to annotate in the format nDDXXXX explained above. |
+| Sentence 2 ID | The ID of the second sentence of the pair to annotate in the format nDDXXXX explained above. |
+| Context buffer | Buffer of +- sentences given as context around the central sentence. Note that although we performed trials with different number of sentences in the context, we fixed this number to 7 and all the data in this dataset have a buffer of 7 sentences. |
+| Context start | ID of the sentence that starts the context. This is always the central sentence ID minus the number of buffer sentences (7). For instance, for n02456b07p5559, the central sentence is 456 of debate 02, and the context start is at n020449 (456-7). |
+| Context end | ID of the sentence that finishes the context. This is always the central sentence ID plus the number of buffer sentences (7). For instance, for n02456b07p5559, the central sentence is 456 of debate 02, and the context end is at n020463 (456+7). |
+| Topic | The topic of the pair of sentences to annotate. |
+| Context tags | The full context in text form with HTML tags, as shown to the crowd annotators. The pair of sentences to annotate were highlighted in blue. |
+| Sentence 1 | First sentence of the pair in text form. |
+| Sentence 2 | Second sentence of the pair in text form. |
+| Context | The full context in text without HTML tags. |
+
+- full_dataset.csv: 
+- aggregated_dataset.csv: 
 
 
