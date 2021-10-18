@@ -122,5 +122,19 @@ This script has been tested with Python 3.8, although it should work with Python
 | pydub | 0.25.1 |
 | nltk | 3.6.2 |
 
+### *dataset\_statistics.py*
 
+This Jupyter Notebook reproduces some descriptive statistics of the dataset, including the figures shown in the paper, Krippendorff's aggreement, and others.
+
+This script has been tested with Jupyter Notebook using Python 3.8.5, although it should work with Python >=3.0 (but it hasn't been tested). The following Python modules need to be installed for the overall functioning of the script:
+
+| Module | Version |
+| --- | --- |
+| pathlib | 1.0.1 |
+| pandas | 1.2.5 |
+| numpy | 1.20.2 |
+| seaborn | 0.11.1 |
+| matplotlib | 3.3.4 |
+| joypy | 0.2.5 |
+| nltk | 3.6.2 |
 
