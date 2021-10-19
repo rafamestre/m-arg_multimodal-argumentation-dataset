@@ -113,7 +113,7 @@ This script performs the preprocessing of the original dataset and creates the a
 - Accesses the timestamps (in folder *\data\timestamps*) and splits the audio files (in folder *data\split audio*) by utterances, with a buffer of +-2 s (by default, can be changed) and saves the clips (in folder *data\audio sentences*). Remember that the folder *audio sentences* is empty in our GitHub, and this code should be run until one (modifying the buffer time of 2 s if wanted) to obtain these clips and be able to run the models.
 - Merges all of this information and creates the file *data\preprocessed full dataset\full_feature_extraction_dataset.csv*, explained above.
 
-This script has been tested with Python 3.8, although it should work with Python >=3.0 (but it hasn't been tested). The following Python modules need to be installed:
+This script has been tested with Python 3.8, although it should work with Python >=3.0 (but it hasn't been tested). The following Python modules of at least these versions need to be installed:
 
 | Module | Version |
 | --- | --- |
@@ -126,7 +126,7 @@ This script has been tested with Python 3.8, although it should work with Python
 
 This Jupyter Notebook reproduces some descriptive statistics of the dataset, including the figures shown in the paper, Krippendorff's aggreement, and others.
 
-This script has been tested with Jupyter Notebook using Python 3.8.5, although it should work with Python >=3.0 (but it hasn't been tested). The following Python modules need to be installed for the overall functioning of the script:
+This script has been tested with Jupyter Notebook using Python 3.8.5, although it should work with Python >=3.0 (but it hasn't been tested). The following Python modules of at least these versions need to be installed for the overall functioning of the script:
 
 | Module | Version |
 | --- | --- |
@@ -138,3 +138,30 @@ This script has been tested with Jupyter Notebook using Python 3.8.5, although i
 | joypy | 0.2.5 |
 | nltk | 3.6.2 |
 
+### *multimodal\_model.py*
+
+This Python script runs the text-only, audio-only and multimodal models whose performance metrics are shown in the README file. Detailed information about the architecture of the models can be found in the paper. 
+
+This script has been tested with Python 3.8, although it should work with Python >=3.0 (but it hasn't been tested). The following Python modules of at least these versions need to be installed:
+
+| Module | Version |
+| --- | --- |
+| pathlib | 1.0.1 |
+| pandas | 1.2.5 |
+| tensorflow | 2.4.1 |
+| tensorflow_hub | 0.12.0 |
+| pydub | 0.25.1 |
+| numpy | 1.20.2 |
+| librosa | 0.8.1 |
+| matplotlib | 3.3.4 |
+| sklearn | 0.24.2 |
+| seaborn | 0.11.1 |
+| tqdm | 4.61.2 |
+
+To run the following models, we recomend:
+
+- text-only:
+- audio-only:
+- multimodal:
+
+The script saves as results the confusion matrix of the model in .png and .svg and the classification report in .csv file. In order to not overwrite the results, we recomend modifying the variable "run_nb" with a different number each time. 
