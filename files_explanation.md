@@ -160,8 +160,8 @@ This script has been tested with Python 3.8, although it should work with Python
 
 To run the following models, we recomend:
 
-- text-only:
-- audio-only:
-- multimodal:
+- text-only: do not call the audio feature extraction if you only want to run the text-only model. This preprocessing step takes a long time and it's unnucessary for this model.
+- audio-only: the function audio_pre_processing() needs to be called and it returns the audio features and the text ready to be input in the model (even if the text features are not needed here, but it allows to re-use this for the multimodal model). Notice the audio preprocessing takes a long time to process. To improve this, the audio features could be saved as Python objects next to the audio clips and load them each time, instead of preprocessing them. This has not been implemented here.
+- multimodal: if you're running a multimodal model right after the audio model (or viceversa), you can use the same pre-processed features with the function audio_pre_processing(). No need to run it again unless you're re-splitting the dataset.
 
 The script saves as results the confusion matrix of the model in .png and .svg and the classification report in .csv file. In order to not overwrite the results, we recomend modifying the variable "run_nb" with a different number each time. 
