@@ -57,7 +57,7 @@ Note: when we talk about "question", we refer to an annotation task of the argum
 | confidence | **Average** self-reported confidence in the annotation (see **Annotations** section). | 
 | confidence:stddev | **Standard deviation** of the self-reported confidence. | 
 | relation | **Most likely** argumentative relation between the pair of sentences (see **Annotations** section). The most likely argumentative relation is decided according to the highest confidence score (next row). |
-| relation:confidence | **Confidence score** in the argumentative relation between the pair of sentences. This is calculated as a weighted average of the annotators' trust when doing the judgement. |
+| relation:confidence | **Confidence score** (called **annotation agreement** in the paper) in the argumentative relation between the pair of sentences. This is calculated as a weighted average of the annotators' trust when doing the judgement. |
 | orig\_\_golden | Boolean indicating whether a quesiton was *originally* a test or gold question. By default, all annotations with *orig\_\_golden* == TRUE will also have *\_golden* == TRUE. However, in three instances, test questions that seemed to be too confusing for the annotators (and hence not appropriate test questions) were "hidden", meaning that they were not shown again. These pairs of sentences have annotations and a *relation\_gold* entry, but have *\_golden* == FALSE, which seems inconsistent. *orig\_\_golden* == TRUE tells us that they were originally gold questions, but not at the end of the full annotation.
 | confidence\_gold |
 | context | Context shown to the annotators, including HTML tags. |
