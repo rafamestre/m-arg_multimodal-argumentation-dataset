@@ -150,6 +150,7 @@ This script has been tested with Python 3.8, although it should work with Python
 | pandas | 1.2.5 |
 | tensorflow | 2.4.1 |
 | tensorflow_hub | 0.12.0 |
+| tensorflow_text | 2.4.x |
 | pydub | 0.25.1 |
 | numpy | 1.20.2 |
 | librosa | 0.8.1 |
