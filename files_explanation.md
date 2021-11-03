@@ -64,7 +64,7 @@ Note: when we talk about "question", we refer to an annotation task of the argum
 | relation\_gold | If the current annotation is a gold question, this is the "correct answer" that provided beforehand and against which annotators were tested. If not a gold question, it's empty. |
 | relation\_gold\_reason |  If the current annotation is a gold question, this is the explanation of why this was the correct answer. The annotators were shown this explanation if they failed, so they could learn from their mistakes. If not a gold question, it's empty. |
 | sentence\_1 | First sentence of the pair in text form. |
-| setence\_2 | Second sentence of the pair in text form. |
+| sentence\_2 | Second sentence of the pair in text form. |
 | speaker\_1 | Speaker of the first sentence. |
 | speaker\_2 | Speaker of the second sentence. |
 | topic | Topic of discussion during that part of the debate. |
