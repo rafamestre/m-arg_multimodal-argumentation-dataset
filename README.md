@@ -10,7 +10,7 @@ If using this dataset, please cite the following publication:
 
 And reference the dataset itself in this repository:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5653504.svg)](https://doi.org/10.5281/zenodo.5653504)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5653503.svg)](https://doi.org/10.5281/zenodo.5653503)
 
 ### The data
 
