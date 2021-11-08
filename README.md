@@ -8,6 +8,9 @@ If using this dataset, please cite the following publication:
 
 >    Rafael Mestre, Razvan Milicin, Stuart E. Middleton, Matt Ryan, Jiatong Zhu, Timothy J. Norman. 2021. M-Arg: Multimodal Argument Mining Dataset for Political Debates with Audio and Transcripts. In: *8th Workshop on Argument Mining, 2021* at *2021 Conference on Empirical Methods in Natural Language Processing (EMNLP)*.
 
+And reference the dataset itself in this repository:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5653504.svg)](https://doi.org/10.5281/zenodo.5653504)
 
 ### The data
 
