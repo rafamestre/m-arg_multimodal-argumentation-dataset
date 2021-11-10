@@ -17,7 +17,9 @@ modification, are permitted provided that the following conditions are met:
    must acknowledge the University of Southampton and cite
    the following paper which describes the dataset:
 
-Mestre, R., Milicin, R., Middleton, S.E., Ryan, M., Zhu, J., Norman, T. J. "M-Arg: MultiModal Argument Mining Dataset for Political Debates with Audio and Transcripts"
+Mestre, R., Milicin, R., Middleton, S., Ryan, M., Zhu, J., & Norman, T. J. (2021, November). 
+M-Arg: Multimodal Argument Mining Dataset for Political Debates with Audio and Transcripts. 
+In Proceedings of the 8th Workshop on Argument Mining (pp. 78-88).
 
 4. Neither the name of the University of Southampton nor the
    names of its contributors may be used to endorse or promote products
