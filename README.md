@@ -6,7 +6,21 @@ This dataset contains audio/transcripts from 5 US 2020 presidential debates anno
 
 If using this dataset, please cite the following publication:
 
->    Rafael Mestre, Razvan Milicin, Stuart E. Middleton, Matt Ryan, Jiatong Zhu, Timothy J. Norman. 2021. M-Arg: Multimodal Argument Mining Dataset for Political Debates with Audio and Transcripts. In: *8th Workshop on Argument Mining, 2021* at *2021 Conference on Empirical Methods in Natural Language Processing (EMNLP)*.
+>    Mestre, R., Milicin, R., Middleton, S. E., Ryan, M., Zhu, J., & Norman, T. J. (2021, November). M-Arg: Multimodal Argument Mining Dataset for Political Debates with Audio and Transcripts. In Proceedings of the 8th Workshop on Argument Mining (pp. 78-88).
+
+```
+@inproceedings{mestre-etal-2021-arg,
+    title = "{M}-Arg: Multimodal Argument Mining Dataset for Political Debates with Audio and Transcripts",
+    author = "Mestre, Rafael and Milicin, Razvan and Middleton, Stuart E. and Ryan, Matt and Zhu, Jiatong and Norman, Timothy J.",
+    booktitle = "Proceedings of the 8th Workshop on Argument Mining",
+    month = nov,
+    year = "2021",
+    address = "Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.argmining-1.8",
+    pages = "78--88",
+}
+```
 
 And reference the dataset itself in this repository:
 
